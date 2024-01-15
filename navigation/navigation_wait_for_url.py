@@ -1,6 +1,4 @@
 from playwright.sync_api import sync_playwright
-from time import perf_counter, sleep
-
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(
@@ -20,12 +18,11 @@ with sync_playwright() as playwright:
 
     # perform actions on the page.
     page.get_by_placeholder("E-Mail Address").click()
-    page.get_by_placeholder("E-Mail Address").fill("user1@lambdatest.io")
+    page.get_by_placeholder("E-Mail Address").fill("priyankt68@gmail.com")
     page.get_by_placeholder("Password").click()
-    page.get_by_placeholder("Password").fill("unitest123")
-
-    # perform actions on the page.
-
+    page.get_by_placeholder("Password").fill("LambdaTest123")
+    page.get_by_role("button", name="Login").click()
+    page.get_by_role("link", name="Home").click()
     browser.close()
     
     
